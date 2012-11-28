@@ -8,17 +8,19 @@ import java.util.List;
 public class Player
 {
 
+   private final String playerId;
    private double pot = 0.0;
    private List<Card> hand;
 
-   public Player(Game game)
+   public Player(Game game, String playerId)
    {
-      this(game.getInitialStake());
+      this(game.getInitialStake(), playerId);
    }
 
-   public Player(double initialStake)
+   public Player(double initialStake, final String playerId)
    {
-      pot += initialStake;
+      this.pot += initialStake;
+      this.playerId = playerId;
       hand = new ArrayList<Card>();
    }
 
@@ -46,9 +48,15 @@ public class Player
 
    public String toString()
    {
-      return super.toString() + ":" + pot;
+      return super.toString() + ":" + getPlayerId() + ":" + pot;
    }
 
-
+   /**
+    * @return the playerId
+    */
+   public String getPlayerId()
+   {
+      return playerId;
+   }
 
 }

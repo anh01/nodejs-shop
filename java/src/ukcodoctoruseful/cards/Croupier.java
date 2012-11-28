@@ -1,6 +1,10 @@
 package ukcodoctoruseful.cards;
 
-public class Croupier
+import ukcodoctoruseful.cards.event.CardsEvent;
+import ukcodoctoruseful.cards.event.CardsEventListener;
+
+
+public class Croupier implements CardsEventListener
 {
 
    Deck deck;
@@ -55,6 +59,14 @@ public class Croupier
 
 
    public void deal(Game game)
+   {
+      // TODO Auto-generated method stub
+
+   }
+
+
+   @Override
+   public void handle(CardsEvent event)
    {
       // TODO Auto-generated method stub
 
