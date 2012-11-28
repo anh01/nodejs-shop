@@ -25,19 +25,19 @@
 
 <target name="jar" depends="compile">
 <jar
-jarfile="lib/toolbox.jar">
-<fileset dir="classes"/>
+jarfile="${distribution.folder}/${java.jarfile}">
+<fileset dir="${java.classes}"/>
 </jar>
 </target>
 
 <target name="compile">
-<mkdir dir="classes"/>
+<mkdir dir="${java.classes}"/>
 <javac
-srcdir="src"
-destdir="classes"
+srcdir="${java.src}"
+destdir="${java.classes}"
 classpathref="classpath"/>
-<copy todir="classes">
-<fileset dir="src">
+<copy todir="${java.classes}">
+<fileset dir="${java.resources}">
 <include name="**/*.xsl" />
 <include name="**/*.gif" />
 <include name="**/*.jpg" />
@@ -47,7 +47,7 @@ classpathref="classpath"/>
 </target>
 
 <target name="clean">
-<delete dir="classes"/>
+<delete dir="${java.classes}"/>
 </target>
 
 </project>
