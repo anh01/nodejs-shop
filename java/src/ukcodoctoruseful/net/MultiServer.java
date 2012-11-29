@@ -184,7 +184,7 @@ public class MultiServer
       return serverSocket;
    }
 
-   private void shutdown() throws IOException
+   void shutdown() throws IOException
    {
       logger.logStart("shutdown");
       stopAcceptingConnections();

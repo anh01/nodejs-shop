@@ -70,7 +70,7 @@ public class MultiServerAcceptRunnable implements Runnable
       System.out.println(readLine);
       if (readLine.equals("SHUTDOWN"))
       {
-         server.stopAcceptingConnections();
+         server.shutdown();
       }
 
    }
