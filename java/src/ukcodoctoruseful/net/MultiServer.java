@@ -24,9 +24,6 @@ public class MultiServer
 
    private final LogAssistant logger = new LogAssistant(this);
 
-   private static final int SECOND = 1000;
-
-   private static final int DEFAULT_RUN_TIME = 5 * SECOND;
 
    public static void main(String[] args) throws UnknownHostException, IOException
    {
@@ -158,8 +155,7 @@ public class MultiServer
       {
          try
          {
-            final MultiServerAcceptRunnable target = new MultiServerAcceptRunnable(this, serverSocket.accept());
-            clients.add(target);
+            final MultiServerAcceptRunnable target = new MultiServerAcceptRunnable(this, serverSocket);
             new Thread(listenersGroup, target).start();
          }
          catch (SocketException e)
@@ -188,7 +184,6 @@ public class MultiServer
    {
       logger.logStart("shutdown");
       stopAcceptingConnections();
-      notifyThreads();
       if (serverSocket != null && !serverSocket.isClosed())
       {
          synchronized (serverSocket)
@@ -204,12 +199,6 @@ public class MultiServer
 
    }
 
-   private void notifyThreads()
-   {
-      logger.logStart("notifyThreads");
-      logger.logEnd("notifyThreads");
-
-   }
 
    /**
     * 

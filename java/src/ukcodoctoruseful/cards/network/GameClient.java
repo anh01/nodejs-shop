@@ -37,7 +37,6 @@ public class GameClient {
 				gameSocket.close();
 			}
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

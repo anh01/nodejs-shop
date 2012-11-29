@@ -54,10 +54,6 @@ public class Game implements CardsEventListener {
 		server.waitForConnections(3);
 	}
 
-	private void waitForPlayers() {
-		// TODO Auto-generated method stub
-
-	}
 
 	public List<Player> getPlayers() {
 		return Collections.unmodifiableList(players);
