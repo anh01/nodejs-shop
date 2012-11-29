@@ -2,12 +2,14 @@ package ukcodoctoruseful.cards;
 
 import ukcodoctoruseful.cards.event.CardsEvent;
 import ukcodoctoruseful.cards.event.CardsEventListener;
+import ukcodoctoruseful.cards.network.GameClient;
 
 
 public class Croupier implements CardsEventListener
 {
 
    Deck deck;
+   GameClient gameClient;
 
 
 

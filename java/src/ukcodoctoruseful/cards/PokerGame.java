@@ -11,6 +11,9 @@ public class PokerGame extends Game
    private Card theRiver;
 
 
+   public PokerGame() {
+	   super();
+   }
 
    protected double getNextBetValue(long playId)
    {
