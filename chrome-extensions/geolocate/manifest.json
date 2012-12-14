@@ -1,0 +1,18 @@
+{
+  "name": "Geolocate",
+  "version": "1.0",
+  "manifest_version": 2,
+  "description": "Search some UK sites for Grid references",
+  "browser_action": {
+    "default_icon": "icon.png"
+  },
+  "permissions": [
+    "contextMenus",
+    "http://geograph.org.uk/gridref/",
+    "http://gridreferencefinder.com/"
+  ],
+  "background": {
+    "scripts": ["gridref.js"]
+  }
+
+}

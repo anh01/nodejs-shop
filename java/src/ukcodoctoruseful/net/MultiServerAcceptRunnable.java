@@ -33,27 +33,31 @@ public class MultiServerAcceptRunnable implements Runnable
    {
       //      int messageCount = 5;
       logger.info("Connected to " + client);
+      String line = null;
       do
       {
          try
          {
-            //            writeResponse();
-            //            Thread.sleep(1000);
-            read();
-            //            Thread.sleep(1000);
-
+            line = read();
+            logger.info(client + " " + line);
          }
-         //         catch (InterruptedException e)
-         //         {
-         //            logger.throwable(e);
-         //         }
          catch (IOException e)
          {
             logger.throwable(e);
          }
       }
-      while (server.isAcceptingConnections());
-      //      while (--messageCount >= 0 && server.isAcceptingConnections());
+      while (line != null && server.isAcceptingConnections());
+
+
+      sayGoodbyeGracefully();
+
+   }
+
+   /**
+    * 
+    */
+   protected void sayGoodbyeGracefully()
+   {
       try
       {
          sayGoodbye();
@@ -62,23 +66,17 @@ public class MultiServerAcceptRunnable implements Runnable
       {
          logger.throwable(e);
       }
-
    }
 
-   private void read() throws IOException
+   private String read() throws IOException
    {
       final String readLine = in.readLine();
-      System.out.println(readLine);
       if (readLine.equals("SHUTDOWN"))
       {
          server.shutdown();
       }
+      return readLine;
 
-   }
-
-   private void writeResponse()
-   {
-      out.println("What have you got to say for yourself?");
    }
 
    private void sayGoodbye() throws IOException

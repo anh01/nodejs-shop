@@ -126,20 +126,8 @@ public class MultiServer
       {
          logger.throwable(e);
       }
-      //      catch (InterruptedException e)
-      //      {
-      //         logger.throwable(e);
-      //      }
       finally
       {
-         //         try
-         //         {
-         //            shutdown();
-         //         }
-         //         catch (IOException e)
-         //         {
-         //            logger.throwable(e);
-         //         }
       }
 
 
