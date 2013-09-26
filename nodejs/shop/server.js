@@ -4,9 +4,12 @@ var url = require("url");
 
 function start(route, port, ip) {
   function onRequest(request, response) {
-    var pathname = url.parse(request.url).pathname;
+    //TODO replace this with URL parsers.
+    var parsedUrl = url.parse(request.url, true);
+    var pathname = parsedUrl.pathname;
     var data = "";
-    
+    data = parsedUrl.query;
+
     request.setEncoding("utf8");
     request.addListener("data", function(dataChunk) {
       data += dataChunk;
@@ -14,6 +17,7 @@ function start(route, port, ip) {
       dataChunk + "'.");
     });
     request.addListener("end", function() {
+      console.log("data: " + data);
       route(pathname, request.method, data, response);
     });      
   }
