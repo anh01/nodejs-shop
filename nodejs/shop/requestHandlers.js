@@ -1,13 +1,12 @@
-var db = require('database');
 
 function successResponse(response) {
-  response.write("success");
   response.writeHead(200, {'Content-Type':'text/plain'});
+  response.write("success");
   response.end();
 }
 
 function findProduct(data) {
-  console.log(db.doctoru.find(data));
+  console.dir(data);
 }
 
 function product(method, data, response) {
