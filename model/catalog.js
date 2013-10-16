@@ -15,6 +15,10 @@ var productSchema = new Schema({
   modified: {type: Date, default: Date.now}
 });
 
+var skuSchema = new Schema({
+  product: {type: Schema.Types.ObjectId, ref: 'Product'}
+});
+
 var catalogSchema = new Schema({
   name: String,
   products: [{type: Schema.Types.ObjectId, ref: 'Product'}],
@@ -40,7 +44,17 @@ var inventorySchema = new Schema({
 });
 
 var stockSchema = new Schema({
-  inventory: {type: Schema.Types.ObjectId, ref: 'Inventory'}
+  inventory: {type: Schema.Types.ObjectId, ref: 'Inventory'},
+  sku: {type: Schema.Types.ObjectId, ref: 'Sku'},
+  level: Number,
+  backorder: Number,
+  preorder: Number
+});
+
+var priceSchema = new Schema({
+  price: Number,
+  currency: String,
+  previousPrice: {type: Schema.Types.ObjectId, ref: 'Price'}
 });
 
 var mediaSchema = new Schema({
@@ -52,11 +66,13 @@ var mediaSchema = new Schema({
 
 var model = {
   product : mongoose.model('Product', productSchema),
+  sku : mongoose.model('Sku', skuSchema),
   inventory: mongoose.model('Inventory', inventorySchema),
   stock: mongoose.model('Stock', stockSchema),
+  price: mongoose.model('Price', priceSchema),
   category : mongoose.model('Category', categorySchema),
   catalog: mongoose.model('Catalog', catalogSchema),
   media : mongoose.model('Media', mediaSchema)
 };
 
-export.model = model;
+exports.model = model;
