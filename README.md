@@ -1,23 +1,22 @@
-# DoctorU's useful-stuff
+# DoctorU's Shop
 
 ## Intro
 
-This is a random collection of java, PHP, whatever.
+This is a first pass at a commerce system running on node.
 
-It's a dumping ground for little projects that pop into my head every now and then.
-Although I'm moving away from development work, I still occasionally need to scratch my hacker itch, and here is exactly that!.
+## Installation
 
-### Key Areas
-#### ukcodoctoruseful.net
-Messing around with networking.
-#### ukcodoctoruseful.cards
-Messing around with a card game.
+1. Install Node and associated npm
+1. Install MongoDB
+1. from this directory, run `npm install`
 
-## History
+## Startup
+If you have enough CPU cycles, you can start up and run the shop from one line:
 
-30/11/2012 DoctorU: I've added the *.net package, with my simple Multi-Threaded Server comms stuff. 
-I need to pull out the Protocol separately, though...
+  cd ../..
+  node nodejs/shop/control db:start shop
+Will start a mongoDB instance and fork it.
 
-26/11/2012 DoctorU: First entry, setting up a git repository 
-
-26/11/2012 DOctorU: for the little coding snippets that come in handy now and then
+## Errata
+This is a work in progress. Please let me know (via github) if you have problems.
+   
