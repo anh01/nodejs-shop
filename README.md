@@ -13,8 +13,9 @@ This is a first pass at a commerce system running on node.
 ## Startup
 If you have enough CPU cycles, you can start up and run the shop from one line:
 
-  cd ../..
-  node nodejs/shop/control db:start shop
+    cd ../..
+    node nodejs/shop/control db:start shop
+    
 Will start a mongoDB instance and fork it.
 
 ## Errata
