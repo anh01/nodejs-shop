@@ -1,6 +1,7 @@
 var mongoose = require("mongoose");
+var Media = require('./media').mediaSchema;
 var Schema = mongoose.Schema;
-mongoose.connect('mongodb://localhost/test');
+var Id = Schema.Types.ObjectId;
 
 //basic definition for category/product hierarchy
 //products have an image media type (property: image)
@@ -8,21 +9,21 @@ mongoose.connect('mongodb://localhost/test');
 var productSchema = new Schema({
   name: String,
   description: String,
-  image: {type: Schema.Types.ObjectId, ref: 'Media'},
-  start: Date,
+  image: {type: Id, ref: 'Media'},
+  start: {type: Date, default: Date.now},
   end: Date,
   created: {type: Date, default: Date.now},
   modified: {type: Date, default: Date.now}
 });
 
 var skuSchema = new Schema({
-  product: {type: Schema.Types.ObjectId, ref: 'Product'}
+  product: {type: Id, ref: 'Product'}
 });
 
 var catalogSchema = new Schema({
   name: String,
-  products: [{type: Schema.Types.ObjectId, ref: 'Product'}],
-  categories: [{type: Schema.Types.ObjectId, ref: 'Category'}],
+  products: [{type: Id, ref: 'Product'}],
+  categories: [{type: Id, ref: 'Category'}],
   created: {type: Date, default: Date.now},
   modified: {type: Date, default: Date.now}
 });
@@ -36,43 +37,18 @@ var categorySchema = new Schema({
   modified: {type: Date, default: Date.now}
 });
 
-var inventorySchema = new Schema({
-  name: String,
-  locale: String,
-  created: {type: Date, default: Date.now},
-  modified: {type: Date, default: Date.now}
-});
-
-var stockSchema = new Schema({
-  inventory: {type: Schema.Types.ObjectId, ref: 'Inventory'},
-  sku: {type: Schema.Types.ObjectId, ref: 'Sku'},
-  level: Number,
-  backorder: Number,
-  preorder: Number
-});
-
-var priceSchema = new Schema({
-  price: Number,
-  currency: String,
-  previousPrice: {type: Schema.Types.ObjectId, ref: 'Price'}
-});
-
-var mediaSchema = new Schema({
-  url: String,
-  type: String,
-  created: {type: Date, default: Date.now},
-  modified: {type: Date, default: Date.now}
-});
-
 var model = {
   product : mongoose.model('Product', productSchema),
   sku : mongoose.model('Sku', skuSchema),
-  inventory: mongoose.model('Inventory', inventorySchema),
-  stock: mongoose.model('Stock', stockSchema),
-  price: mongoose.model('Price', priceSchema),
   category : mongoose.model('Category', categorySchema),
   catalog: mongoose.model('Catalog', catalogSchema),
-  media : mongoose.model('Media', mediaSchema)
 };
 
 exports.model = model;
+exports.id = Id;
+exports.connect = function() {
+  mongoose.connect('mongodb://'+process.env.IP+'/shop');
+
+}
+
+exports.connect();

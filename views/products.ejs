@@ -1,0 +1,31 @@
+<article name="main article" title="<%= title %>">
+  
+<h1><%= title %></h1>
+
+<p>Welcome to <%= title %></p>
+</article>
+<article name="products">
+<p> Found <%= products.length %> Products.</p>
+<ul>
+
+	<% for(var i=0; i<products.length; i++) { %>
+  <li><a href="<%= '/product/'+ products[i]._id %>"><%= products[i].description %></a></li>
+  <% } %>
+</ul>
+</article>
+<article name="primary links">
+<ol>
+ <li><a href="#">Catalogues</a></li>
+ <li><a href="#">Categories</a></li>
+ <li><a href="#">Products</a></li>
+ <li><a href="#">Warehouse</a></li>
+</ol>
+</article>
+<article name="tertiary links">
+<ol>
+ <li><a href="#">Catalogues</a></li>
+ <li><a href="#">Categories</a></li>
+ <li><a href="#">Products</a></li>
+ <li><a href="#">Warehouse</a></li>
+</ol>
+</article>

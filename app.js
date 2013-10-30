@@ -3,12 +3,15 @@
  * Module dependencies.
  */
 
-var express = require('express')
-  , routes = require('./routes');
+var express = require('express');
+var helpers = require('express-helpers');
+var routes = require('./routes');
+var products = require('./controllers').productController;
+var navNodes = require('./controllers').navController;
 
-var app = module.exports = express.createServer();
+var app = express();
+helpers(app);
 
-// Configuration
 
 app.configure(function(){
   app.set('views', __dirname + '/views');
@@ -20,7 +23,6 @@ app.configure(function(){
   app.use(app.router);
   app.use(express.static(__dirname + '/public'));
 });
-
 app.configure('development', function(){
   app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
 });
@@ -30,8 +32,11 @@ app.configure('production', function(){
 });
 
 // Routes
+app.get('/', navNodes.readByName, routes.index);
+app.get("/warehouse/", routes.index);
+app.get('/catalog/', routes.catalog);
+app.get('/products/', products.readAll, routes.products);
+app.get('/product/:product', products.readOneById, routes.product);
 
-app.get('/', routes.index);
-
-app.listen(3000);
-console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
+app.listen(process.env.PORT);
+console.log("Express server listening on port %d in %s mode", process.env.PORT, app.settings.env);

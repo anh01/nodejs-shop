@@ -1,0 +1,34 @@
+<article name="main article" title="<%= title %>">
+  
+<h1><%= title %></h1>
+
+<p>Welcome to <%= title %></p>
+</article>
+<article name="product">
+<h2><%= product.name %></h2>
+<ul>
+<% if(product.image) { %>
+<li><img src="<%= product.image.url %>" alt="<%= product.name %>"/></li>
+<% } %>
+<li><%= product.description %></li>
+<li><%= product.start %></li>
+<li><%= product.end %></li>
+<li><%= link_to(product.name, '/product/'+product.id) %></li>
+</ul>
+</article>
+<article name="primary links">
+<ol>
+ <li><a href="#">Catalogues</a></li>
+ <li><a href="#">Categories</a></li>
+ <li><a href="/products/">Products</a></li>
+ <li><a href="">Warehouse</a></li>
+</ol>
+</article>
+<article name="tertiary links">
+<ol>
+ <li><a href="#">Catalogues</a></li>
+ <li><a href="#">Categories</a></li>
+ <li><a href="/products">Products</a></li>
+ <li><a href="#">Warehouse</a></li>
+</ol>
+</article>
