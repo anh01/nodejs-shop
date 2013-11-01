@@ -1,8 +1,7 @@
 var mongoose = require("mongoose");
-var Media = require('./media').mediaSchema;
 var Schema = mongoose.Schema;
 var Id = Schema.Types.ObjectId;
-// mongoose.connect('mongodb://'+process.env.IP+'/shop');
+//mongoose.createConnection('mongodb://'+process.env.IP+'/shop');
 
 //basic definition for category/product hierarchy
 //products have an image media type (property: image)
@@ -14,7 +13,7 @@ var linkSchema = new Schema({
   image: {type: Id, ref: 'Media'},
   alt: String,
   start: {type: Date, default: Date.now},
-  end: Date,
+  end: {type: Date},
   created: {type: Date, default: Date.now},
   modified: {type: Date, default: Date.now}
 });

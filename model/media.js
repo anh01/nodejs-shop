@@ -8,5 +8,4 @@ var mediaSchema = new Schema({
   modified: {type: Date, default: Date.now}
 });
 
-exports.mediaSchema = mediaSchema;
 exports.media = mongoose.model('Media', mediaSchema);

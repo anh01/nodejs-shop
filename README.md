@@ -10,6 +10,12 @@ This is a first pass at a commerce system running on node.
 1. Install MongoDB
 1. from this directory, run `npm install`
 
+## Test Data
+
+1. Catalog: From this directory, run `node test/data/catalogData.js`
+2. CMS (nav): From this directory, run `node test/data/cmsData.js
+ 
+
 ## Startup
 If you have enough CPU cycles, you can start up and run the shop from one line:
 

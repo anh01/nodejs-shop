@@ -12,15 +12,17 @@
 <% } %>
 <li><%= product.description %></li>
 <li><%= product.start %></li>
+<% if(product.end) { %>
 <li><%= product.end %></li>
-<li><%= link_to(product.name, '/product/'+product.id) %></li>
+<% } %>
+<li><%- link_to(product.name, '/product/'+product._id) %></li>
 </ul>
 </article>
 <article name="primary links">
 <ol>
  <li><a href="#">Catalogues</a></li>
  <li><a href="#">Categories</a></li>
- <li><a href="/products/">Products</a></li>
+ <li><%- link_to('Products', '/products/') %></li>
  <li><a href="">Warehouse</a></li>
 </ol>
 </article>

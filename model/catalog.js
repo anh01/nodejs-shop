@@ -46,9 +46,4 @@ var model = {
 
 exports.model = model;
 exports.id = Id;
-exports.connect = function() {
-  mongoose.connect('mongodb://'+process.env.IP+'/shop');
 
-}
-
-exports.connect();

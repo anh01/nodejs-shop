@@ -1,16 +1,21 @@
+var db = require('./model/db');
+
+var conn = db.connect(function(err) {
+    if(err) throw err;
+    console.dir(arguments);
+  });
 
 /**
  * Module dependencies.
  */
 
 var express = require('express');
-var helpers = require('express-helpers');
-var routes = require('./routes');
-var products = require('./controllers').productController;
-var navNodes = require('./controllers').navController;
-
 var app = express();
-helpers(app);
+var helpers = require('express-helpers')(app); //Using the latest express-helpers from https://github.com/tanema/express-helpers
+var routes = require('./routes');
+var products = require('./controllers/productController');
+var navNodes = require('./controllers/navController');
+
 
 
 app.configure(function(){
@@ -36,7 +41,7 @@ app.get('/', navNodes.readByName, routes.index);
 app.get("/warehouse/", routes.index);
 app.get('/catalog/', routes.catalog);
 app.get('/products/', products.readAll, routes.products);
-app.get('/product/:product', products.readOneById, routes.product);
+// app.get('/product/:product', products.readOneById, routes.product);
 
 app.listen(process.env.PORT);
 console.log("Express server listening on port %d in %s mode", process.env.PORT, app.settings.env);
