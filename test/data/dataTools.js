@@ -57,7 +57,6 @@ function create(model, testData, callback) {
  * TODO fix this so that it follows the async pattern of callback(erroror, result);
  */
 function createRelationship(data, next) {
-  console.dir(data);
   data.type.findOne(data.subject, function(err, sdoc) {
     dbcallback(err, null);
     if(sdoc) {
