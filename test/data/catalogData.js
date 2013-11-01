@@ -40,43 +40,21 @@ var products = [
   {name: "Train", description: "Stephenson's Rocket"}
 ];
 
-var categoryRelations = [
-  {subject: categories[1], object: categories[0]},
-  {subject: categories[1], object: categories[1]},
-  {subject: categories[1], object: categories[1]},
-  {subject: categories[1], object: categories[1]},
-  {subject: categories[1], object: categories[1]},
-];
-  
-
-
-var categoryRelations = [
-  {subject: categories[1], object: categories[0]},
-  {subject: categories[1], object: categories[1]},
-  {subject: categories[1], object: categories[1]},
-  {subject: categories[1], object: categories[1]},
-  {subject: categories[1], object: categories[1]},
-];
-  
-
 
 var createProducts = function(callback) {
   this.create = create;
   this.create(ProductModel, products, callback);
-}
+};
 var createCategories = function(callback) {
   this.create = create;
   this.create(CategoryModel, categories, callback);
-}
+};
 
 var createParent = function(data, callback) {
   data.property = 'parent';
   data.type = CategoryModel;
-  createRelationship(data, callback)var createParent = function(data, callback) {
-  data.property = 'parent';
-  data.type = CategoryModel;
   createRelationship(data, callback);
-};;
+};
 
 var cleanFunctions = [
     function(dbcallback) {clean(ProductModel, dbcallback);},
@@ -95,18 +73,6 @@ var createCategoryRelationshipFunctions = [
   function(dbcallback) {createParent({subject: categories[4], object: categories[1]}, dbcallback)}
   ];
 
-
-var conn = dataTools.setupConnection();
-
-conn.on('open', function() {
-  //TODO:
-  //clean
-  //then
-  //create
-  //then
-  //relate
-  
-
 var conn = dataTools.setupConnection();
 
 conn.on('open', function() {
@@ -119,21 +85,15 @@ conn.on('open', function() {
   
   async.parallel(cleanFunctions,
     function(err, results){
-      dataTools.dbcallback(err)dataTools.dbcallback(err);
+      dataTools.dbcallback(err);
       async.parallel(createFunctions,
         function(err, results) {
           dataTools.dbcallback(err);
-          async.parallel(createCategoryRelationshipFunctions, function(err, resultsdataTools.dbcallback(err);
           async.parallel(createCategoryRelationshipFunctions, function(err, results) {
             dbcallback(err);
-      dbcallback(err);
-            console.log(results);onsole.log(results);
+            console.log(results);
             process.exit();
           });
-        }
-        );
-    }
-  );
-}
-  );
+      });
+  });
 });
