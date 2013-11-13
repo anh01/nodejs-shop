@@ -17,12 +17,19 @@ exports.catalog = function(req,res) {
   res.render('index', {title: title("Catalog")});
 };
 exports.products = function(req,res) {
-  res.render('products', {products: res.locals.products, title: title("Products")});
+  res.render('products', {title: title("Products")});
 };
 exports.product = function(req,res) {
   var t = title(":Product");
   if(res.locals.product) {
     t = res.locals.product.name + t;
   }
-  res.render('product', {title: t, product: res.locals.product});
+  res.render('product', {title: t});
+};
+exports.cart = function(req, res) {
+  var t = title('Cart');
+  res.render('cart', {title: t});
+};
+exports.login = function(req, res) {
+  res.render('login', {title: title('Login')});
 };

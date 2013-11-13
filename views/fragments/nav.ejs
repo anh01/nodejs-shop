@@ -1,10 +1,12 @@
 <% for(var i=0; i < navNodes.length; i++){ 
 var navNode = navNodes[i]; %>
-<article name="<%= navNode.name %>">
-<ol>
-<% for(var j=0; j < navNode.childNodes.length; j++) { var child = navNode.childNodes[j]; %>
-<li><a href="<%= child.link.href %>">x <%= child.name %> x</a>
-<% } %>
-</ol>
-</article>
-<% } %>
+<section class='nav'>
+  <nav name="<%= navNode.name %>">
+    <ol>
+    <% for(var j=0; j < navNode.childNodes.length; j++) { var child = navNode.childNodes[j]; %>
+      <li><a href="<%= child.link.href %>">x <%= child.name %> x</a></li>
+    <% } %>
+    </ol>
+  </nav>
+  <% } %>
+</section>

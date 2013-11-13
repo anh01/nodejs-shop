@@ -1,7 +1,4 @@
 var mongoose = require("mongoose");
-//Inventory of what? Products, that's what!
-require("./catalog");
-
 var Schema = mongoose.Schema;
 var Id = Schema.Types.ObjectId;
 

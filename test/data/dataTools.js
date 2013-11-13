@@ -1,16 +1,40 @@
 var async = require('async');
 
 var updateInsertModel = function(model, testData, callback) {
-  // console.dir(model, testData);
+  //Can't use upsert mode with mongoose and plugins - doesn't save.
   var options = {upsert:true};
   var query = testData;
   var update = testData;
-  // console.log("x", query, update, options, model.modelName, "y");
+  this.createANewOne = function(model, update) {
+    this.model = model;
+    this.update = update;
+    
+    this.saveMe = function() {
+      model.save(update), function(error, doc) {
+        if(error) {
+          callback(error, null);
+        } else {
+          callback(null, doc.modelName + ":" +doc._id)
+        }
+      }
+    }
+  }
   model.findOneAndUpdate(query, update, options, function(error, doc) {
     if(error) {
       callback(error, null);
     } else {
-      callback(null, model.modelName + ' ' + testData + " created/updated");
+      console.log("findOneAndUpdate", doc);
+      if(!doc) {
+        callback("Not created", null);
+      } else {
+        doc.save(function(err, doc, number){
+          if(err) {
+            callback(err, null);
+          } else {
+            callback(null, doc.modelName + ":" + doc._id);
+          }
+        });
+      }
     }
   });
 };
@@ -48,20 +72,22 @@ function create(model, testData, callback) {
 
 /**
  * @param data an object with properties subject, object, property and type
- * TODO fix this so that it follows the async pattern of callbackcallback);
-    
-}
-
-/**
- * @param data an object with properties subject, object, property and type
- * TODO fix this so that it follows the async pattern of callback(erroror, result);
+ * TODO fix this so that it follows the async pattern of callback(error, result);
  */
 function createRelationship(data, next) {
-  data.type.findOne(data.subject, function(err, sdoc) {
+  if(data.type) { //single type relationship
+    data.parenttype = data.type;
+    data.childtype = data.type;
+  }
+  data.parenttype.findOne(data.subject, function(err, sdoc) {
     dbcallback(err, null);
     if(sdoc) {
-      data.type.findOne(data.object, function(err, odoc) {
-        sdoc[data.property] = odoc._id;
+      data.childtype.findOne(data.object, function(err, odoc) {
+        if('array' === typeof sdoc[data.property]) {
+          sdoc[data.property].push(odoc._id);
+        } else { //assume non-collection
+          sdoc[data.property] = odoc._id;
+        }
         sdoc.modified = new Date();
         sdoc.save(function(err, doc){
           dbcallback(err, null);
@@ -75,6 +101,7 @@ function createRelationship(data, next) {
   });
 }
 
+
 /** 
  * Deletes all items of the specified type from the database.
  * @param type a mongoose model.
@@ -86,7 +113,7 @@ function clean(type, callback) {
     if(err) {
       callback(err, null);
     } else {
-      callback(null, type.modelName);
+      callback(null, 'Cleaned ' + type.modelName);
     }
   });
 }

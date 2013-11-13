@@ -2,7 +2,13 @@
 
 ## Intro
 
-This is a first pass at a commerce system running on node.
+This is a first pass at a commerce system srunning on node.
+
+## Dependencies
+
+For the existing configuration, there are external dependencies on:
+1. My MongoHQ instance (development sandbox)
+1. My Amazon S3 Free account (might not do this!)
 
 ## Installation
 
@@ -13,7 +19,7 @@ This is a first pass at a commerce system running on node.
 ## Test Data
 
 1. Catalog: From this directory, run `node test/data/catalogData.js`
-2. CMS (nav): From this directory, run `node test/data/cmsData.js
+2. CMS (nav): From this directory, run `node test/data/cmsData.js`
  
 
 ## Startup

@@ -1,0 +1,46 @@
+<section ng-controller='cart' class='cart currency_usd'>
+  <h2>My Cart</h2>
+  <a class='action tocart' href='/cart/'>Go to cart</a>
+  <section class='pending'><h3>Loading...</h3></section>
+  <ul class='items'>
+    <li class='item'>
+      <img src='#' alt='{{product description}}'></img>
+      <h3><a href='/cart/#'>{{product name}}</a></h3>
+      <h4>{{size info}}</h4>
+      <p>
+        <em class='qty'>1</em>
+        <em class='cost'>{{000.00}}</em>
+      </p>
+      <a class='action remove' href='/cart/remove/{{id}}/#'>Remove from cart</a>
+    </li>
+    <li class='item'>
+      <img src='#' alt='{{product description}}'></img>
+      <h3><a href='/cart/#'>{{product name With an unfeasibly long description}}</a></h3>
+      <h4>{{This is a very big and flowery size description}}</h4>
+      <p>
+        <em class='qty'>1</em>
+        <em class='cost'>{{000.00}}</em>
+      </p>
+      <a class="action remove" href="/cart/remove/{{id}}/#">Remove from cart</a>
+    </li>
+  </ul>
+  <section class='tax'>
+    <h3>VAT @20%</h3>
+    <p>
+      <em class='cost'>{{000.00}}</em>
+    </p>
+  </section>
+  <section class='shipping'>
+    <h3>Postage</h3>
+    <h4>Standard (3-5 days)</h4>
+    <p>
+      <em class='cost'>{{000.00}}</em>
+    </p>
+  </section>
+  <section class='total'>
+    <h3>Total</h3>
+    <p>
+      <em class='cost'>{{000.00}}</em>
+    </p>
+  </section>
+</section>

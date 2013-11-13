@@ -1,5 +1,7 @@
+<%- include fragments/head %> 
+<%- include fragments/bodystart %>
+
 <article name="main article" title="<%= title %>">
-  
 <h1><%= title %></h1>
 
 <p>Welcome to <%= title %></p>
@@ -8,29 +10,22 @@
 <h2><%= product.name %></h2>
 <ul>
 <% if(product.image) { %>
-<li><img src="<%= product.image.url %>" alt="<%= product.name %>"/></li>
+<li class="thumbnail"><img src="<%= product.image.url %>" alt="<%= product.name %>"/></li>
 <% } %>
 <li><%= product.description %></li>
 <li><%= product.start %></li>
+<li><%= product.modified %></li>
 <% if(product.end) { %>
 <li><%= product.end %></li>
 <% } %>
 <li><%- link_to(product.name, '/product/'+product._id) %></li>
 </ul>
+<section ng-app='modifyCart' class='actions'>
+  <ul>
+    <a href='/cart/add/<%- product._id %>' >Add to cart</a>
+  </ul>
+</section>
 </article>
-<article name="primary links">
-<ol>
- <li><a href="#">Catalogues</a></li>
- <li><a href="#">Categories</a></li>
- <li><%- link_to('Products', '/products/') %></li>
- <li><a href="">Warehouse</a></li>
-</ol>
-</article>
-<article name="tertiary links">
-<ol>
- <li><a href="#">Catalogues</a></li>
- <li><a href="#">Categories</a></li>
- <li><a href="/products">Products</a></li>
- <li><a href="#">Warehouse</a></li>
-</ol>
-</article>
+
+<%- include fragments/aside %>
+<%- include fragments/foot %>

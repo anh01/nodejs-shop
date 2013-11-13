@@ -1,0 +1,13 @@
+<section class='login'>
+<% if(user) { %>
+<h2>Hello, <%- user.email %></h2>
+<p><a href="/logout">Logout</a></p>
+<% } else { %>
+<h2> Log In</h2>
+<form method='post' action='/login'>
+<label for='email'>Email: <input type='text' name='email'></input></label>
+<label for='pwd'>Password: <input type='password' name='pwd'></input></label>
+<input type='submit'></input>
+</form>
+<% } %>
+</section>

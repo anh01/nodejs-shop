@@ -1,0 +1,48 @@
+html {font-size: 14pt;padding: 0 1em;margin:0;}
+body {font-family:'Dosis',sans-serif;margin-right:30.2em;} /*for all elements that inherit*/
+input, select, textarea, button{font-family:inherit;}
+h1, h2, h3, h4, h5 {font-family:'Open Sans',serif;font-weight:100;color:#336;margin:.2em;margin:.2rem;text-shadow: 1pt 1pt 3pt rgba(128,142,128,0.5);}
+h1 {font-size:3.3em;}
+h3 {font-size:1.2em;}
+h4 {font-size:1.0em;}
+p {font-size: 100%;margin:0.5em 0;}
+/* Currency prefix styles. allows easy change of currency! */
+.currency_gbp .cost:before {content: '\00A3';}
+.currency_usd .cost:before {content: '\0024';}
+.currency_eur .cost:after {content: '\20ac';}
+/* For any styled buttons */
+.action {display:block;width:25px;height:25px;outline:1px solid #999;position:absolute;overflow:hidden;}
+
+/* Product display specific styling */
+/* Login page specific styling */
+article .login label, article .login input {
+  font-size: 2em;
+  display:block;
+}
+article .login h2 {font-size:200%;}
+/* Cart specific styling */
+aside.primary {position:absolute;right:0;display:block; width:30em;border:0;padding:0;margin:0;top:0;right:1em;}
+.cart, .login, nav {position:relative;display:block;margin:.2em;padding:5px;right:0;border:1px solid #ddf;border-radius:0 1em;background-color:#eef;}
+
+/*.cart > h2 {margin-left:1.4em;} */
+.cart > .tocart {position:absolute;right:.4em;top:.4em;color:transparent;background:url('/public/images/free-ecommerce-icons.jpg');background-position: -168px -163px;}
+nav ol, .cart > .items {margin:0;padding:0;list-style: none;}
+.cart .item, .cart section {position: relative;background-color:#ccf;border:1px solid #aaf;display:block;clear:both;margin:.4em .2em;}
+.cart .item {height:6.7em;border:1px solid #aaf;border-radius:0 1em;}
+.cart section {height: auto;position:relative;}
+.cart .item img {width:90px;height:90px;float:left;margin:.2em; margin-left:.2em;}
+.cart h3 {margin:0 4em .2em .2em;margin-right: 4rem;}
+.cart h4 {margin:0 6em .3em .3em;margin-right: 4rem;}
+.cart p {margin:0;position:absolute;text-align:right;padding:0;padding-right:.5em;right:0;bottom:0;}
+.cart .item p em {display:block;margin:0;}
+.cart .item .qty:before {content:'Qty.: ';}
+.cart .item .remove {color:transparent;left:-0.2em;top:-0.2em;background:url('/public/images/free-ecommerce-icons.jpg');background-position:-367px -312px;}
+
+/* Products view */
+ul.grid {display:inline-block;position:static;padding:0;}
+ul.grid li {position:relative;display:inline-block;outline: 1px solid black;margin:0 0 .2em .2em;width:30%;}
+ul.grid li a {text-decoration:none;width:30%;height:30%;}
+ul.products li {display:inline-block;position:relative;}
+ul.products li .name {position:absolute;left:0;top:0;background-color:rgba(255,255,255,.75);}
+ul.products li .description {position:absolute;left:0;bottom:0;background-color:rgba(255,255,255,.75);overflow:hidden;width:98%;}
+ul.products li img {float:left;width:100%;height:100%;}
