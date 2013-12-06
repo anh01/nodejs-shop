@@ -6,6 +6,7 @@
 
 <p>Welcome to <%= title %></p>
 </article>
+
 <article name="products">
 <p> Found <%= products.length %> Products.</p>
 <ul class='products grid'>
@@ -15,6 +16,7 @@
     <a href="<%= '/product/'+ products[i]._id %>">
       <h3 class='name'><%= products[i].name %></h3>
       <h4 class='description'><%= products[i].description %></h4>
+      <!-- TODO make this work with CDN (Google Cloud?) -->
       <img src='/public/images/shoe.jpg?300x300' alt='product image'></img>
     </a>
   </li>

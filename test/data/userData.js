@@ -11,9 +11,9 @@ var clean = dataTools.clean;
 var dbcallback = dataTools.dbcallback; //default callback handler
 
 var userRoles = [
-  {name: 'Administrator'},
-  {name: 'Editor'},
-  {name: 'Warehouse Manager'}
+  {name: 'Administrator', action:'/admin'},
+  {name: 'Editor', action: '/cms'},
+  {name: 'Warehouse Manager', action: '/warehouse'}
 ];
 
 var users = [ // n.b., non-email address logins will fail when we put validation on the front end!

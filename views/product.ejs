@@ -20,9 +20,9 @@
 <% } %>
 <li><%- link_to(product.name, '/product/'+product._id) %></li>
 </ul>
-<section ng-app='modifyCart' class='actions'>
+<section ng-controller='addToCartCtrl' class='actions'>
   <ul>
-    <a href='/cart/add/<%- product._id %>' >Add to cart</a>
+    <a href='/cart/add/<%- product._id %>/1' >Add one to cart</a>
   </ul>
 </section>
 </article>

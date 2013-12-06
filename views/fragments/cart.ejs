@@ -1,46 +1,39 @@
-<section ng-controller='cart' class='cart currency_usd'>
+<section class='cart currency_gbp' ng-controller='cartCtrl'>
   <h2>My Cart</h2>
   <a class='action tocart' href='/cart/'>Go to cart</a>
-  <section class='pending'><h3>Loading...</h3></section>
-  <ul class='items'>
-    <li class='item'>
-      <img src='#' alt='{{product description}}'></img>
-      <h3><a href='/cart/#'>{{product name}}</a></h3>
-      <h4>{{size info}}</h4>
+  <section data-ng-hide='done'><h3>Loading...</h3></section>
+  <ol class='items'data-ng-hide='hasItems'>
+    <li class='item'><h3>No Items</h3></li>
+  </ol>
+  <ol class='items' data-ng-show='hasItems'>
+    <li class='item' data-ng-repeat='item in cart.items' >  
+      <img src='/public/images/shoe.jpg#' alt='{{item.description}}'></img>
+      <h3><a href='/product/{{item.id}}'>{{item.name}}</a></h3>
+      <h4>{size info}</h4>
       <p>
-        <em class='qty'>1</em>
-        <em class='cost'>{{000.00}}</em>
+        <em class='qty'>{{item.qty}}</em>
+        <em class='cost'>{{item.cost|number:2}}</em>
       </p>
-      <a class='action remove' href='/cart/remove/{{id}}/#'>Remove from cart</a>
+      <a class='action remove' href='/cart/remove/{{item.id}}'>Remove from cart</a>
     </li>
-    <li class='item'>
-      <img src='#' alt='{{product description}}'></img>
-      <h3><a href='/cart/#'>{{product name With an unfeasibly long description}}</a></h3>
-      <h4>{{This is a very big and flowery size description}}</h4>
-      <p>
-        <em class='qty'>1</em>
-        <em class='cost'>{{000.00}}</em>
-      </p>
-      <a class="action remove" href="/cart/remove/{{id}}/#">Remove from cart</a>
-    </li>
-  </ul>
-  <section class='tax'>
-    <h3>VAT @20%</h3>
+  </ol>
+  <section class='tax' data-ng-repeat='taxline in cart.tax.lines'>
+    <h3>{{cart.tax.name}} @{{taxline.rate}}%</h3>
     <p>
-      <em class='cost'>{{000.00}}</em>
+      <em class='cost'>{{taxline.cost|number:2}}</em>
     </p>
   </section>
   <section class='shipping'>
     <h3>Postage</h3>
     <h4>Standard (3-5 days)</h4>
     <p>
-      <em class='cost'>{{000.00}}</em>
+      <em class='cost'>{{cart.shipping.cost|number:2}}</em>
     </p>
   </section>
   <section class='total'>
     <h3>Total</h3>
     <p>
-      <em class='cost'>{{000.00}}</em>
+      <em class='cost'>{{cart.total.cost|number:2}}</em>
     </p>
   </section>
 </section>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+  
+  <testsuite name="libAuthTest.js"
+             errors="0"
+             failures="0"
+             tests="7">
+    
+      
+      <testcase name="authTestSuite - allows access for base location">
+        
+      </testcase>
+    
+      
+      <testcase name="authTestSuite - allows access for product location">
+        
+      </testcase>
+    
+      
+      <testcase name="authTestSuite - allows access for cart location">
+        
+      </testcase>
+    
+      
+      <testcase name="authTestSuite - allows access for admin location when user has admin action">
+        
+      </testcase>
+    
+      
+      <testcase name="authTestSuite - denies access for admin location when user has no roles">
+        
+      </testcase>
+    
+      
+      <testcase name="authTestSuite - denies access for admin location when user has null roles">
+        
+      </testcase>
+    
+      
+      <testcase name="authTestSuite - denies access for admin location when user does not have admin action">
+        
+      </testcase>
+    
+  </testsuite>
+

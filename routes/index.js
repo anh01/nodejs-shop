@@ -27,9 +27,20 @@ exports.product = function(req,res) {
   res.render('product', {title: t});
 };
 exports.cart = function(req, res) {
-  var t = title('Cart');
-  res.render('cart', {title: t});
+  res.format({
+    json:function() {
+      // dump the cart to json - consider jsonp?
+      res.json(res.locals.cart);
+    },
+    html: function() {
+      var t = title('Cart');
+      res.render('cart', {title: t});
+    }
+  });
 };
 exports.login = function(req, res) {
   res.render('login', {title: title('Login')});
+};
+exports.adminHome = function(req, res) {
+  res.render('admin/index', {title: title('Admin')});
 };

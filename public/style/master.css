@@ -1,11 +1,13 @@
 html {font-size: 14pt;padding: 0 1em;margin:0;}
 body {font-family:'Dosis',sans-serif;margin-right:30.2em;} /*for all elements that inherit*/
 input, select, textarea, button{font-family:inherit;}
-h1, h2, h3, h4, h5 {font-family:'Open Sans',serif;font-weight:100;color:#336;margin:.2em;margin:.2rem;text-shadow: 1pt 1pt 3pt rgba(128,142,128,0.5);}
-h1 {font-size:3.3em;}
-h3 {font-size:1.2em;}
-h4 {font-size:1.0em;}
-p {font-size: 100%;margin:0.5em 0;}
+h1, h2, h3, h4, h5{font-family:'Open Sans',serif;font-weight:100;color:#336;margin:.2em;margin:.2rem;text-shadow: 1pt 1pt 3pt rgba(128,142,128,0.5);}
+h1{font-size:3.3em;}
+h3{font-size:1.2em;}
+h4{font-size:1.0em;}
+p{font-size: 100%;margin:0.5em 0;}
+
+.hide{display:none;}
 /* Currency prefix styles. allows easy change of currency! */
 .currency_gbp .cost:before {content: '\00A3';}
 .currency_usd .cost:before {content: '\0024';}
@@ -43,6 +45,6 @@ ul.grid {display:inline-block;position:static;padding:0;}
 ul.grid li {position:relative;display:inline-block;outline: 1px solid black;margin:0 0 .2em .2em;width:30%;}
 ul.grid li a {text-decoration:none;width:30%;height:30%;}
 ul.products li {display:inline-block;position:relative;}
-ul.products li .name {position:absolute;left:0;top:0;background-color:rgba(255,255,255,.75);}
-ul.products li .description {position:absolute;left:0;bottom:0;background-color:rgba(255,255,255,.75);overflow:hidden;width:98%;}
+ul.products li .name {position:absolute;left:0;top:0;background-color:rgba(255,255,255,.75);padding:.2em;}
+ul.products li .description {position:absolute;left:0;bottom:0;background-color:rgba(255,255,255,.75);overflow:hidden;width:98%;padding:.2em;}
 ul.products li img {float:left;width:100%;height:100%;}

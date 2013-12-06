@@ -36,7 +36,7 @@ var categories = [
 var products = [
   {name: "Bike", description: "trek Madone 7.1"},
   {name: "Car", description: "Lambourghini Gallardo Superleggera"},
-  {name: "Plane", description: "Grumman F16a Strike Eagle"},
+  {name: "Plane", description: "McDonnell Douglas F15E Strike Eagle"},
   {name: "Train", description: "Stephenson's Rocket"}
 ];
 
