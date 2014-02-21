@@ -1,13 +1,12 @@
 var mongoose = require("mongoose");
-var host = 'paulo.mongohq.com';
-var port = 10094;
-var user = 'shop';
-var pwd = 'Sh0p!';
-var database= 'doctoruseful';
+var dbconfig = require ("../config/db");
+var host = dbconfig.host;
+var port = dbconfig.port;
+var user = dbconfig.user;
+var pwd = dbconfig.pwd;
+var database= dbconfig.database;
 var options = {user: user, pass: pwd, keepAlive: 1};
-var urlexternal = 'mongodb://username:password@'+host+':'+port+'/' + database;
-var urllocal = 'mongodb://'+process.env.IP+'/shop';
-var url = urlexternal;
+var url = dbconfig.url || dbconfig.protocol + '://username:password@'+host+':'+port+'/' + database;
 
 function terminateCleanly() {
   disconnect(function() { 
