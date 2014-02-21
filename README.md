@@ -7,6 +7,7 @@ This is a first pass at a commerce system srunning on node.
 ## Dependencies
 
 For the existing configuration, there are external dependencies on:
+
 1. My MongoHQ instance (development sandbox)
 1. My Amazon S3 Free account (might not do this!)
 
@@ -23,6 +24,18 @@ For the existing configuration, there are external dependencies on:
  
 
 ## Startup
+
+### New Way
+
+1. Set the port in your environment - in windows:
+
+		set PORT = 3000
+2. Start the app with
+
+    	node app
+2. visit [http://localhost:3000/](http://localhost:3000/)
+
+### Old Way
 (Untested since the fork) If you have enough CPU cycles, you can start up and run the shop from one line:
 
     cd ../..
