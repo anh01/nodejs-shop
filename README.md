@@ -1,8 +1,8 @@
-# DoctorU's Shop
+# Node.js Shop
 
 ## Intro
 
-This is a first pass at a commerce system srunning on node.
+This is a first pass at a commerce system running on node.
 
 ## Dependencies
 
