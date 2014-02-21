@@ -12,8 +12,8 @@ For the existing configuration, there are external dependencies on:
 
 ## Installation
 
-1. Install Node and associated npm
-1. Install MongoDB
+1. Install Node and associated npm (from e.g., [http://nodejs.org/download/](http://nodejs.org/download/))
+1. Install MongoDB (Optional - current version uses hosted instance).
 1. from this directory, run `npm install`
 
 ## Test Data
@@ -23,7 +23,7 @@ For the existing configuration, there are external dependencies on:
  
 
 ## Startup
-If you have enough CPU cycles, you can start up and run the shop from one line:
+(Untested since the fork) If you have enough CPU cycles, you can start up and run the shop from one line:
 
     cd ../..
     node nodejs/shop/control db:start shop
