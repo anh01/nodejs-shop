@@ -32,6 +32,8 @@
     "mocha": "1.14.x",
     "should": "2.1.x",
     "grunt": "0.4.x",
-    "sinon": "1.7.x"
+    "sinon": "1.7.x",
+    "grunt-mocha-test": "^0.9.3",
+    "jsmockito": "^1.0.4"
   }
 }
