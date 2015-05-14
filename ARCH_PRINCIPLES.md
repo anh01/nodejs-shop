@@ -23,3 +23,23 @@
    * APIs have default error capability
 * All web interfaces should use asynchronous access to build pages
    * inter-item messaging?
+   * 
+   
+### Usability
+
+* initial focus on service layer
+* Front end shop
+* Product import and management ease of use is key.
+   * Import from CSV/spreadsheet?
+   * Drag-drop?
+   * Normalisation with old catalog?
+   * Dragging a new catalog definition will change the source for
+   * Keep inventory separate from product/sku information.
+
+### Data storage
+
+* Data is stored in a noSQL js object format.
+* Product catalog single monolithic noSQL datastore?
+* Personal data (orders, my account details, etc)
+   * Could co-exist in a single DB
+   * OR Each user could have their own individual store (shard?)
