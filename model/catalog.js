@@ -35,7 +35,6 @@ catalogSchema.plugin(plugin.created);
 var categorySchema = new Schema({
   name: String,
   parent: {type: Schema.Types.ObjectId, ref: 'Category'},
-  children: [{type: Schema.Types.ObjectId, ref: 'Category'}],
   products: [{type: Schema.Types.ObjectId, ref: 'Product'}],
   created: {type: Date, default: Date.now},
 });
